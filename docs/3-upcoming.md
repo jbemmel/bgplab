@@ -1,61 +1,50 @@
 # Upcoming Labs
 
-While we're working on new stuff you can already enjoy [almost a dozen](index.md) labs. In case you're curious about what's coming next, here are a few ideas:
+While we're working on new stuff, you can already enjoy [two dozen](index.md) labs. In case you're curious about what's coming next, here's what we're working on:
+
+* [Using No-Export Community to Filter Transit Routes](challenge/02-no-export.md)
+* [BGP Graceful Shutdown](challenge/03-graceful-shutdown.md)
+* [Using Bird BGP Daemon as a BGP Route Reflector](challenge/01-bird-rr.md)
+* [BGP Route Server in an Internet Exchange Point](session/5-routeserver.md)
+* [Use controlled disaggregation to influence inbound traffic flow](policy/b-disaggregate.md)
+* [EBGP Load Balancing with DMZ Bandwidth](lb/2-dmz-bw.md)
+* [IBGP Load Balancing with DMZ Bandwidth](lb/3-ibgp.md)
+* [IBGP Load Balancing with BGP Additional Paths](lb/4-ibgp-add-path.md)
+* [Minimize the Forwarding Table on Provider Edge Routers](challenge/30-reduce-fib.md)
+
+We have plenty of other ideas, including:
 
 ## Basic BGP Setup
 
-* Use BGP summarization to minimize the number of BGP advertisements
+Optional exercises:
+: * Run BGP on servers
+  * Multihop EBGP sessions
+  * Dynamic BGP neighbors
+  * Passive BGP peers
 
-**Optional exercises:**
+Advanced exercises:
+: * Fine-tune BGP Fast External Failover
+  * Configure BGP graceful restart
+  * Multihop EBGP sessions with servers
 
-* Use session templates and BGP peer groups
-* Improve convergence speed with BFD
+## BGP Routing Policies
 
-**Advanced exercises:**
-
-* Change the BGP AS number presented to the BGP neighbor (**local-as** functionality)
-* Disable AS path check on incoming updates (**allowas-in** functionality)
-* Run EBGP over unnumbered IPv4 interfaces or over IPv6 link-local addresses
-* Run IPv4 and IPv6 over the same BGP session
-* Fine-tune BGP Fast External Failover
-* Configure BGP graceful restart
-
-## Simple BGP Routing Policies
-
-* Perform simple load balancing across parallel links and across upstream providers
-* Use BGP link bandwidth to influence the load balancing weights
-
-**Advanced exercises:**
-
-* Use BGP route refresh and soft reconfiguration
-* Use outbound route filters (ORF)
-
-## BGP in Enterprise Networks
-
-* Use IBGP with multiple WAN edge routers
-* Use BGP local preference to prefer one of the upstream providers
-* Use more complex BGP local preference setup to prefer direct connectivity with customers of upstream ISPs
-* Use MED to influence route selection in an upstream ISP
-* Use AS-path prepending to influence route selection across multiple upstream ISPs
+Advanced exercises:
+: * Use BGP route refresh and soft reconfiguration
+  * Use outbound route filters (ORF)
 
 ## Controlling Inbound Traffic
 
-* Use BGP communities to influence route selection in upstream ISPs
-* Use controlled disaggregation to influence inbound traffic flow
+* Use AS-path prepending together with BGP communities to prevent BGP wedgies
 * Use conditional route advertisements to select primary/backup links for the inbound traffic
 
 ## BGP in Service Provider Networks
 
 * Build a simple service provider network with IBGP
-* Use BGP route reflectors to reduce the number of IBGP sessions
 * Use a hierarchy of route reflectors
-* Build a transit autonomous system using BGP communities to change routing policies
 * Reduce routing instabilities with BGP route flap dampening
 * Implement policy-based routing with BGP
 
 ## Use MPLS with BGP 
 
-* Use MPLS to build a BGP-free core
-* Use SR-MPLS to minimize the number of control-plane protocols
 * Use BGP Labeled Unicast to extend MPLS paths across multiple autonomous systems
-

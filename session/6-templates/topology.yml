@@ -1,0 +1,29 @@
+# Configure BGP session templates
+---
+defaults.sources.extra: [ ../../defaults.yml ]
+plugin: [ check_validate, external_devices ]
+
+name: sesstemp
+module: [ bgp, ospf ]
+bgp.as: 65000
+bgp.next_hop_self: False
+
+groups:
+  external:
+    members: [ l1, l2 ]
+  leafs:
+    members: [ l1, l2 ]
+  spines:
+    members: [ s1, s2 ]
+    bgp.rr: True
+    bgp.advertise_loopback: False
+
+nodes: [ s1, s2, l1, l2 ]
+
+links: [ l1-s1, l1-s2, l2-s1, l2-s2 ]
+
+message: |
+  The "Use BGP Session Templates" lab is ready. Use "netlab connect"
+  command to connect to lab devices.
+
+_include: [ validate.yml ]

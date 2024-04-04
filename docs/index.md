@@ -1,26 +1,62 @@
 ---
 title: Labs Overview
 ---
-# ipSpace.net BGP Configuration Labs
+# Open-Source BGP Configuration Labs
 
-The following series of hands-on labs will help you master numerous aspects of EBGP, IBGP, and BGP routing policy configuration on a platform of your choice[^PC].
+This series of BGP hands-on labs will help you master numerous aspects of EBGP, IBGP, and BGP routing policy configuration on a [platform of your choice](https://netlab.tools/platforms/#platform-routing-support)[^PC], including:
 
-[^PC]: Some assembly required: the Cumulus Linux VMs/containers that are used for external BGP speakers are easy to download, but you'll have to build a Vagrant box or install a vendor-supplied Vagrant box or Docker container image for most other platforms. See [installation and setup](1-setup.md) for details.
+* Arista EOS
+* Aruba AOS-CX
+* Cisco ASAv, IOSv, IOS XE, IOS XR and Nexus OS
+* Cumulus Linux and FRR
+* Dell OS10
+* Juniper vSRX, vMX and vPTX
+* Mikrotik RouterOS
+* Nokia SR OS and SR Linux
+* Vyatta VyOS
 
-You can already do the following labs with tons of labs coming in the future (see the list of [upcoming labs](3-upcoming.md)). However, you should probably read the [Installation and Setup](1-setup.md) documentation first.
+[^PC]: Some assembly required: the virtual machines or containers that we recommend to use as external BGP speakers are easy to download, but you'll have to build a Vagrant box or install a vendor-supplied Vagrant box or Docker container image for most other platforms. See [installation and setup](1-setup.md) for details.
 
-## Basic BGP Setup
+More than a dozen labs are already waiting for you (with more [coming soon](3-upcoming.md)), but if this is your first visit to this site, you should start with the [Installation and Setup](1-setup.md) documentation.
 
-* [Establish an EBGP session](basic/1-session.md) with an ISP
-* [Connect to two upstream providers](basic/2-multihomed.md)
-* [Advertise your IPv4 address space](basic/3-originate.md)
-* [Protect EBGP sessions](basic/6-protect.md)
-* [Configure BGP for IPv6](basic/4-ipv6.md)
-* [Redistribute IGP Information Into BGP](basic/5-redistribute.md)
+## Deploy BGP in Your Network
 
-## Simple BGP Routing Policies
+In the first set of the BGP labs, you'll master these skills:
 
-* [Use BGP weights](policy/1-weights.md) to prefer one of the upstream providers
-* [Prevent route leaking between upstream providers](policy/2-stop-transit.md) with an AS-path filter
-* [Filter prefixes advertised by your autonomous system](policy/3-prefix.md) with a prefix list
-* [Minimize the size of your BGP table](policy/4-reduce.md) with inbound filters
+* [Configure and monitor routing daemons on Cumulus Linux and FRRouting](basic/0-frrouting.md)
+* [Configure BGP sessions and advertise IPv4 and IPv6 prefixes](basic/index.md#simple)
+* [Protect BGP sessions](basic/index.md#protect)
+* [Run BGP in networks with more than one BGP router](basic/index.md#ibgp)
+* [Manipulate BGP AS numbers or AS paths](basic/index.md#aspath) with nerd knobs like **as-override** and **local-as**
+* [Implement load balancing](basic/index.md#lb) within an autonomous system and across EBGP neighbors
+* [Configure advanced BGP features](basic/index.md#advanced) like BFD or BGP route aggregation.
+
+## BGP Routing Policies {#policy}
+
+These lab exercises will help you master the basic tools you can use to build BGP routing policies that will:
+
+* [Filter BGP Updates](policy/index.md#filter)
+* [Adjust Outgoing Traffic Flow](policy/index.md#egress)
+* [Influence Incoming Traffic Flow](policy/index.md#ingress)
+
+Once you mastered the basics, continue with [more complex routing policies](policy/index.md#complex).
+
+## Challenge Labs
+
+Mastered the fundamentals and the nerd knobs? Want to tickle your gray cells? Try out the challenge labs:
+
+* [Merge Networks Using Different BGP AS Numbers](challenge/20-merge-as.md)
+* [Stop the Propagation of Configuration Errors](challenge/04-block-fat-fingers.md)
+* [Minimize the Forwarding Table on BGP Routers](challenge/30-reduce-fib.md)
+* [Implement BGP-Free Core in a Transit Network](challenge/40-mpls-core.md)
+
+## Recent Labs
+
+These are the most recent labs added to the BGP Labs project:
+
+* [Implement BGP-Free Core in a Transit Network](challenge/40-mpls-core.md)
+* [Load Balancing across External BGP Paths](lb/1-ebgp.md)
+* [Minimize the Forwarding Table on BGP Routers](challenge/30-reduce-fib.md)
+* [EBGP Sessions over IPv6 LLA Interfaces](basic/d-interface.md)
+* [Advertise Default Route in BGP](basic/c-default-route.md)
+* [Stop the Propagation of Configuration Errors](challenge/04-block-fat-fingers.md)

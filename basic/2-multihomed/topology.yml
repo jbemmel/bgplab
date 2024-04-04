@@ -3,23 +3,38 @@
 defaults.sources.extra: [ ../../defaults.yml ]
 name: multihomed
 
+# Make BGP a valid node attribute so we can configure bgp.as on the node not running BGP
+defaults.attributes.node.bgp:
+plugin: [ ebgp.utils, external_devices, check_validate, fix_frr ]
+
 groups:
   external:
     members: [ x1, x2 ]
     module: [ bgp ]
-    config: [ extra-config ]
-    device: cumulus
 
 nodes:
   rtr:
+    bgp.as: 65000
   x1:
     bgp.as: 65100
+    bgp.router_id: 10.0.0.10
     id: 10
-    bgp.originate: [ 192.168.100.0/24 ]
+    loopback.ipv4: 192.168.100.1/24
   x2:
     bgp.as: 65101
+    bgp.router_id: 10.0.0.11
     id: 11
-    bgp.originate: [ 192.168.101.0/24 ]
+    loopback.ipv4: 192.168.101.1/24
 links:
-- rtr-x1
-- rtr-x2
+- rtr:
+  x1:
+    bgp.default_originate: True
+- rtr:
+  x2:
+    bgp.default_originate: True
+
+message: |
+  The "Configure Multiple EBGP Sessions" lab is ready. Connect to your router
+  with "netlab connect rtr".
+
+  Good luck!

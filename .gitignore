@@ -13,6 +13,14 @@ venv/
 # Ignore everything that should be ignored ;)
 *.ignore.*
 
+# Ignore solution files ;)
+*.solution.*
+solved/
+solution/
+
+# Ignore boilerplate templates
+*-boilerplate.*
+
 # Ignore Ansible retry and log files
 *.retry
 ansible.log
@@ -41,3 +49,7 @@ hosts.yml
 ansible.cfg
 Vagrantfile
 clab.yml
+
+# Ignore redirect and GitHub profile subprojects
+/redirect/
+/profile/

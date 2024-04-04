@@ -1,58 +1,64 @@
 # ipSpace.net BGP Configuration Labs
 
-This repository contains _netlab_ topology files for a series of hands-on labs will help you master numerous aspects of EBGP,  IBGP, and BGP routing policy configuration on a platform of your choice[^PC]. The labs cover:
+This repository contains _netlab_ topology files for a series of hands-on labs that will help you master numerous aspects of EBGP,  IBGP, and BGP routing policy configuration on a platform of your choice[^PC]. The labs cover:
 
 **Basic BGP Setup**
 
+* [Configuring and monitoring routing daemons on Cumulus Linux and FRRouting](basic/0-frrouting)
 * [Establish a BGP session](basic/1-session)
 * [Connect to two upstream providers](basic/2-multihomed)
 * [Advertise your IP prefixes](basic/3-originate)
-* [Protect EBGP sessions](basic/6-protect)
 * [Configure BGP for IPv6](basic/4-ipv6)
 * [Redistribute IGP Information Into BGP](basic/5-redistribute)
 
-**Simple End-User Setup**
+**Protecting BGP Sessions**
+
+* [Protect EBGP sessions](basic/6-protect) with MD5 passwords and TTL protection (GTSM)
+* Protect BGP sessions with [TCP Authentication Option (TCP-AO)](basic/9-ao)
+* [Limit the Number of Accepted BGP Prefixes](basic/b-max-prefix)
+
+**Running BGP in Larger Networks**
+
+* [Establish an IBGP session](ibgp/1-edge) between WAN edge routers
+* [Build a Transit Network with IBGP](ibgp/2-transit)
+* [Use BGP Route Reflectors](ibgp/3-rr)
+* [Use BGP Session Templates](session/6-templates)
+* [Use BGP Policy Templates](session/7-policy)
+
+**Simple BGP Routing Policies**
 
 * [Use BGP weights](policy/1-weights) to prefer one of the upstream providers
 * [Prevent route leaking between upstream providers](policy/2-stop-transit) with an AS-path filter
 * [Filter prefixes advertised by your autonomous system](policy/3-prefix) with a prefix list
 * [Minimize the size of your BGP table](policy/4-reduce) with inbound filters
+* [Implement a consistent AS-wide routing policy](policy/5-local-preference) with BGP local preference.
+* [Use MED to Influence Incoming Traffic Flow](policy/6-med)
+* [Use AS-Path Prepending to Influence Incoming Traffic Flow](policy/7-prepend)
+* [Attach BGP Communities to Outgoing BGP Updates](policy/8-community-attach)
 
-See [lab documentation](https://ipspace.github.io/bgplab/) for the full list of planned labs.
-<!--
-**Basic BGP Setup**
+**Complex BGP Routing Policies**
 
-* (Advanced) Run EBGP over unnumbered IPv4 interfaces or over IPv6 link-local addresses
+* [Use BGP Communities in Routing Policies](policy/9-community-use)
+* [Using BGP Local Preference in a Complex Routing Policy](policy/a-locpref-route-map)
+* [Use BGP Policy Templates](session/7-policy)
 
-**Simple End-User Setup**
+**Advanced Topics**
 
-* Minimize the size of your BGP table with inbound filters
-* Redistribute IGP information into BGP and use BGP summarization to minimize the number of BGP advertisements
-* Perform simple load balancing across parallel links and across upstream provider
+* [Use BFD to Speed Up BGP Convergence](basic/7-bfd)
+* [BGP route aggregation](basic/8-aggregate)
+* [Reuse a BGP AS Number Across Multiple Sites](session/1-allowas_in)
+* [Fix AS-Path in Environments Reusing BGP AS Numbers](session/2-asoverride)
+* [Use Multiple AS Numbers on the Same Router](session/3-localas)
+* [Remove Private BGP AS Numbers from the AS Path](session/4-removeprivate)
+* [Advertise Default Route in BGP](basic/c-default-route)
+* [EBGP Sessions over IPv6 LLA Interfaces](basic/d-interface)
 
-**Multiprotocol BGP**
+**Challenge Labs**
 
-* Run BGP with IPv6
-* (Advanced) Run IPv4 and IPv6 over the same BGP session
+* [Merge Networks Using Different BGP AS Numbers](challenge/20-merge-as)
+* [Stop the Propagation of Configuration Errors](challenge/04-block-fat-fingers/)
+* [Minimize the Forwarding Table on BGP Routers](challenge/30-reduce-fib)
 
-**Simple Transit Network Setup**
+See [lab documentation](https://bgplabs.net/) for more details and the complete list of planned labs.
 
-* Use IBGP to transport BGP information across your network
-* Use BGP route reflectors to reduce the number of IBGP sessions
-* (Advanced) Use a hierarchy of route reflectors
-
-**Networks with Multiple BGP Speakers**
-
-* Use multiple WAN edge routers to connect to upstream ISPs
-* Use BGP local preference to prefer one of the upstream providers
-* Use more complex BGP local preference setup to prefer direct connectivity with customers of upstream ISPs
-* Use MED to influence route selection in an upstream ISP
-* Use AS-path prepending to influence route selection across multiple upstream ISPs
-
-**Complex BGP Route Policies**
-
-* Use BGP communities to influence route selection in upstream ISPs
-* Build a transit autonomous system using BGP communities to change routing policies
--->
-
-[^PC]: Some assembly required: while the Cumulus Linux VMs/containers that are used for external BGP speakers are easy to download, you'll have to build a Vagrant box or install a Docker container image for your platform. 
+[^PC]: Some assembly required: while the Cumulus Linux VMs/containers used for external BGP speakers are easy to download, you'll have to build a Vagrant box or install a Docker container image for your platform.
