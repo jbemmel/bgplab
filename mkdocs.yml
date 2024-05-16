@@ -49,6 +49,8 @@ nav:
     - session/4-removeprivate.md
   - "Load Balancing":
     - lb/1-ebgp.md
+    - lb/2-dmz-bw.md
+    - lb/3-ibgp.md
   - "Other Useful Topics":
     - basic/7-bfd.md
     - basic/8-aggregate.md
@@ -62,6 +64,7 @@ nav:
     - policy/3-prefix.md
     - policy/4-reduce.md
     - basic/b-max-prefix.md
+    - policy/d-no-export.md
   - "Outgoing (Egress) Traffic":
     - policy/1-weights.md
     - policy/5-local-preference.md
@@ -82,14 +85,13 @@ nav:
 
 - "Upcoming":
   - Overview: 3-upcoming.md
-  - challenge/02-no-export.md
   - challenge/03-graceful-shutdown.md
   - challenge/01-bird-rr.md
   - session/5-routeserver.md
   - policy/b-disaggregate.md
-  - lb/2-dmz-bw.md
-  - lb/3-ibgp.md
   - lb/4-ibgp-add-path.md
+  - challenge/02-anycast.md
+  - challenge/05-ebgp-dc.md
 
 markdown_extensions:
 - footnotes

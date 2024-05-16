@@ -34,18 +34,23 @@ BFD (Bidirectional Forwarding Detection)
 Communities
 : * [Attach BGP Communities to Outgoing BGP Updates](policy/8-community-attach.md)
   * [Use BGP Communities in Routing Policies](policy/9-community-use.md)
-  * [Using No-Export Community to Filter Transit Routes](challenge/02-no-export.md) (coming soon)
+  * [Using No-Export Community to Filter Transit Routes](policy/d-no-export.md)
   * [BGP Graceful Shutdown](challenge/03-graceful-shutdown.md) (coming soon)
 
 Default route
 : * [Advertise Default Route in BGP](basic/c-default-route.md)
   * [Minimize the Forwarding Table on BGP Routers](challenge/30-reduce-fib.md)
+  * [Implement Anycast Services with BGP](challenge/02-anycast.md) (coming soon)
+
+Dynamic BGP neighbors
+: * [Implement Anycast Services with BGP](challenge/02-anycast.md) (coming soon)
 
 EBGP sessions
 : * [Establish an EBGP session](basic/1-session.md) with an ISP
   * [Connect to two upstream providers](basic/2-multihomed.md)
   * [EBGP Sessions over IPv6 LLA Interfaces](basic/d-interface.md)
   * [Load Balancing across External BGP Paths](lb/1-ebgp.md)
+	* [EBGP-Only Data Center Design](challenge/05-ebgp-dc.md) (coming soon)
 
 Forwarding Table
 : * [Minimize the Forwarding Table on BGP Routers](challenge/30-reduce-fib.md)
@@ -61,6 +66,8 @@ IBGP sessions
 
 Load balancing
 : * [Load Balancing across External BGP Paths](lb/1-ebgp.md)
+  * [EBGP Load Balancing with BGP Link Bandwidth](lb/2-dmz-bw.md)
+	* [IBGP Load Balancing with BGP Link Bandwidth](lb/3-ibgp.md)
 
 LOCAL_PREF (Local Preference)
 : * [Implement a consistent AS-wide routing policy](policy/5-local-preference.md) with BGP local preference.
